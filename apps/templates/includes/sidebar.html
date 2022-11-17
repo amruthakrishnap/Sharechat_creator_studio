@@ -43,23 +43,37 @@
 								<p>Dashboard</p>
 								<span class="caret"></span>
 							</a>
+							<!---->
 							<div class="collapse" id="dashboard">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="/index.html">
-											<span class="sub-item">Dashboard</span>
+										<a href="https://creators.mojapp.in/learn/">
+											<span class="sub-item">Creator Guide</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</li>
+						
+						<ul class="nav nav-primary">
+							<li class="nav-item {% if 'index' in segment %} active {% endif %}">
+								<a target="_blank"
+								   href="https://creators.mojapp.in/learn/" 
+								   class="btn btn-danger btn-block">
+									<span class="btn-label mr-2"> <i class="fas fa-pen-square"></i> </span>Creator Guide</a> 
+							</li>
+						</ul>
 						<!--
+						<li>
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
+								
 							</span>
 							<h4 class="text-section">Components</h4>
 						</li>
+						-->
+						<!--
 						<li class="nav-item {% if 'ui-' in segment %} active {% endif %}">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
@@ -294,7 +308,7 @@
                             <a target="_blank"
                                href="https://support.sharechat.com/" 
                                class="btn btn-danger btn-block">
-                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>Premium Subscription</a> 
+                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>Contact Us</a> 
 						</li>
 					</ul>
 				{% else %}
@@ -303,7 +317,7 @@
                             <a target="_blank"
                                href="https://support.sharechat.com/" 
                                class="btn btn-danger btn-block">
-                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>Premium Subscription</a> 
+                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>Contact US</a> 
 						</li>
 					</ul>
 				{% endif %}	
