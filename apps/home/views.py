@@ -17,7 +17,7 @@ from apps.home.models import UserDetails
 @login_required(login_url="/login/")
 def index(request):
 
-    default_data = {'overall': {'New Viewers': '10', 'Views': '3.6k', 'followers': '19'}}
+    default_data = {'overall': {'New Viewers': '01', 'Views': '01', 'followers': '01'}}
     default_data = json.dumps(default_data)
 
     try:
