@@ -21,12 +21,11 @@ pip3 install -r requirements.txt
 
 ```
 Run the Server
-
+```
 python manage.py runserver
 ```
-
 Make Database Migrations
-----------------------------
+```
 python manage.py makemigrations
 python manage.py migrate
 ```
