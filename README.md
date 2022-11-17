@@ -1,6 +1,7 @@
 **ShareChat-Studio**
+```
 This Dashboard Specially Designed for MOj and Sharechat to upload the content to the Platform.
-
+```
 Features:
 1)Upload Image / Video contents through the Dashboard.
 2)Different Analyticals can be done such as Post analytics and Profile analytics.
