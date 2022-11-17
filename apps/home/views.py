@@ -17,22 +17,23 @@ from apps.home.models import UserDetails
 @login_required(login_url="/login/")
 def index(request):
 
-    default_data = {'overall': {'New Viewers': '01', 'Views': '01', 'followers': '01'}}
+    default_data = {'overall': {'New Viewers': '01', 'Views': '01', 'followers': '01', 'New Views pct': '01', 'Views Pct': '01', 'follow pct': '00'}, 'Analytics':{'TP': '01', 'TWH': '00', 'WL': [00, 00, 00, 00, 00, 00, 00, 00, 00, 0]}}
     default_data = json.dumps(default_data)
 
     try:
         print(request.user)
         print("\n\n", UserDetails.objects.filter(name=request.user))
-        post = json.loads([col.post.replace("'", '"') for col in UserDetails.objects.filter(name=request.user)][0])
-        print(post, type(post))
+        stat = json.loads([col.post.replace("'", '"') for col in UserDetails.objects.filter(name=request.user)][0])
+        print( stat, type(stat), sep="\n")
         # print(data_dic)
         # print("\n\n", request.user)
     except Exception as e:
-        post = default_data
+        stat = default_data
+        print(stat)
         pass
 
-    post = json.dumps({'overall': post})
-    context = {'segment': 'index', 'data': post}
+    stat = json.dumps(stat)
+    context = {'segment': 'index', 'stat': stat}
 
     html_template = loader.get_template('home/index.html')
     # return render(context,request,"home/index.html", data)

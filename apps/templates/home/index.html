@@ -56,11 +56,11 @@
 								<div class="col-md-4 d-flex flex-column justify-content-around">
 									<div>
 										<h6 class="fw-bold text-uppercase text-success op-8">Total Posts</h6>
-										<h3 class="fw-bold">18</h3>
+										<h3 id="TP" class="fw-bold">18</h3>
 									</div>
 									<div>
 										<h6 class="fw-bold text-uppercase text-danger op-8">Total Watch Hours</h6>
-										<h3 class="fw-bold">0.32 Hours</h3>
+										<h3 id="TWH" class="fw-bold">0.32 Hours</h3>
 									</div>
 								</div>
 								<div class="col-md-8">
@@ -525,11 +525,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 {% endblock content %}
 
- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
@@ -538,19 +538,19 @@
 
 	
 	<script>
-		alert('{{ request.user.username }}')
+		// alert('{{ request.user.username }}')
 		// alert(JSON.parse('{{ da|escapejs }}')['ab']);
-		// console.log({{ data }});
+		// console.log({{ stat }});
 		
-		data = JSON.parse('{{ data|escapejs }}') 
+		stat = JSON.parse('{{ stat|escapejs }}') 
 
 		Circles.create({
 			id:'circles-1',
 			radius:45,
-			value:20,
+			value:stat['overall']['New Views pct'],
 			maxValue:100,
 			width:7,
-			text: data['overall']['New Viewers'],
+			text: stat['overall']['New Viewers'],
 			colors:['#f1f1f1', '#FF9E27'],
 			duration:400,
 			wrpClass:'circles-wrp',
@@ -562,10 +562,10 @@
 		Circles.create({
 			id:'circles-2',
 			radius:45,
-			value:70,
+			value: stat['overall']['Views Pct'],
 			maxValue:100,
 			width:7,
-			text: data['overall']['Views'],
+			text: stat['overall']['Views'],
 			colors:['#f1f1f1', '#2BB930'],
 			duration:400,
 			wrpClass:'circles-wrp',
@@ -577,10 +577,10 @@
 		Circles.create({
 			id:'circles-3',
 			radius:45,
-			value:40,
+			value:stat['overall']['follow pct'],
 			maxValue:100,
 			width:7,
-			text: data['overall']['followers'],
+			text: stat['overall']['followers'],
 			colors:['#f1f1f1', '#F25961'],
 			duration:400,
 			wrpClass:'circles-wrp',
@@ -588,18 +588,25 @@
 			styleWrapper:true,
 			styleText:true
 		})
+		//POST Analytics
+		var TP = document.getElementById('TP');
+		TP.innerHTML = stat['Analytics']['TP'];
 
-		var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
+		var TWH = document.getElementById('TWH');
+		TWH.innerHTML = stat['Analytics']['TWH'];
+		
+
+		// var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
 
 		var mytotalIncomeChart = new Chart(totalIncomeChart, {
 			type: 'bar',
 			data: {
 				labels: ["S", "M", "T", "W", "T", "F", "S"],
 				datasets : [{
-					label: "Total Views",
+					label: "Total Views count",
 					backgroundColor: '#ff9e27',
 					borderColor: 'rgb(23, 125, 255)',
-					data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+					data: stat['Analytics']['WL'],
 				}],
 			},
 			options: {

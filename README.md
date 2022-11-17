@@ -16,7 +16,7 @@ This Dashboard Specially Designed for MOj and Sharechat to upload the content to
 ```
 Install and Run
 ---------------------
-Create Virtual Environment and Inastall basic requirement using below commands.
+Create Virtual Environment and Install basic requirement using below commands.
 ```
 virtualenv env
 source env/bin/activate
