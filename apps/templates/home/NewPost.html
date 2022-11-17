@@ -1,0 +1,132 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="page-inner">
+    <div class="page-header">
+        <h4 class="page-title">Create New Post Here</h4>
+        <ul class="breadcrumbs">
+            <li class="nav-home">
+                <a href="#">
+                    <i class="flaticon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="flaticon-right-arrow"></i>
+            </li>
+            <!-- <li class="nav-item">
+                <a href="#">Authentication</a>
+            </li> -->
+            <li class="separator">
+                <i class="flaticon-right-arrow"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">NewPost</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>
+                            Show Your Creativity with New ShareChat-Studio! 
+                        </span>
+                    </div>
+                </div>
+
+                <form method="post" action="#">
+                    {% csrf_token %}
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="form-group">
+                                    <div class="form-group has-success">
+										<label for="successInput"><b>Enter Title</b></label>
+										<input type="text" id="Title" value="" class="form-control form-control-lg">
+									</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-group">
+										<label for="comment">Describe About Your Post</label>
+										<textarea class="form-control text-primary" id="Desc" rows="5">
+
+										</textarea>
+									</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Upload Video </label>
+                                    <input type="file" accept="video/mp4,video/x-m4v,video/*" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                                
+
+                                    <div class="form-group">
+                                        <label class="form-label"><b>Select Hash Tags</b></label>
+                                        <div class="selectgroup selectgroup-pills">
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="HTML" class="selectgroup-input" checked="">
+                                                <span class="selectgroup-button">HTML</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="CSS" class="selectgroup-input">
+                                                <span class="selectgroup-button">CSS</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="PHP" class="selectgroup-input">
+                                                <span class="selectgroup-button">PHP</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="JavaScript" class="selectgroup-input">
+                                                <span class="selectgroup-button">JavaScript</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="Ruby" class="selectgroup-input">
+                                                <span class="selectgroup-button">Ruby</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="Ruby" class="selectgroup-input">
+                                                <span class="selectgroup-button">Ruby</span>
+                                            </label>
+                                            <label class="selectgroup-item">
+                                                <input type="checkbox" name="value" value="C++" class="selectgroup-input">
+                                                <span class="selectgroup-button">C++</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button type="submit" class="btn btn-secondary btn-round">
+                            <span class="btn-label">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            Create Post
+                        </button>
+                        <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+                        &nbsp; &nbsp;
+                        <!-- <span>Not a member?</span> Please <a href="/register.html" >Register</a> -->
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

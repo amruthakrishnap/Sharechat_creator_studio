@@ -64,3 +64,14 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+
+# @login_required(login_url="/login/")
+# def CreateNewPost(request):
+#     # pass
+#     context = {'segment': 'index'}
+
+#     html_template = loader.get_template('home/login.html')
+#     return render(request, "accounts/login.html", {"form": "form", "msg": "msg"})
+#     # return HttpResponse(html_template.render(context, request))
+
