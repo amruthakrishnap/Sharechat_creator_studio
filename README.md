@@ -14,11 +14,12 @@ Future Updates:
 Install and Run
 ---------------------
 Create Virtual Environment and Inastall basic requirement using below commands.
-
+```
 virtualenv env
 source env/bin/activate
 pip3 install -r requirements.txt
 
+```
 Run the Server
 
 python manage.py runserver
