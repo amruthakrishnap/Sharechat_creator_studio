@@ -6,7 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, SignUpForm
+from .forms import LoginForm, SignUpForm, CreateNewPost
 
 
 def login_view(request):
@@ -15,7 +15,7 @@ def login_view(request):
     msg = None
 
     if request.method == "POST":
-
+        
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
@@ -53,3 +53,13 @@ def register_user(request):
         form = SignUpForm()
 
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+
+def Create_NewPost(request):
+    form = CreateNewPost(request.POST or None)
+
+    msg = None
+
+    if request.method == "POST":
+        print("sai", form)
+
+    return render(request, "accounts/NewPost.html", {"form": form, "msg": msg})

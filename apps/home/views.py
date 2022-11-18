@@ -11,6 +11,9 @@ from django.template import loader
 from django.urls import reverse
 import json
 from apps.home.models import UserDetails
+from .post_form import CreateNewPost
+import os
+
 # from django.forms.models import model_to_dict
 
 
@@ -66,12 +69,29 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 
-# @login_required(login_url="/login/")
-# def CreateNewPost(request):
-#     # pass
-#     context = {'segment': 'index'}
+@login_required(login_url="/login/")
+def Create_NewPost(request):
+    # pass
+    # print(os.cu)
+    context = {'segment': 'index'}
 
-#     html_template = loader.get_template('home/login.html')
-#     return render(request, "accounts/login.html", {"form": "form", "msg": "msg"})
-#     # return HttpResponse(html_template.render(context, request))
+    form = CreateNewPost(request.POST or None)
+    print("ding", form)
+    if request.method == "POST":
+
+        if form.is_valid():
+            Title = form.cleaned_data.get("Title")
+            Description = form.cleaned_data.get("Desc")
+            video = form.cleaned_data.get("vd")
+
+            print("djang", video, Title, Description)
+
+            # with open(f"vide/file/{request.}.mp4", 'wb+') as destination:
+            #     for chunk in f.chunks():
+            #         destination.write(chunk)
+
+    # html_template = loader.get_template('home/login.html')
+
+    return render(request, "home/NewPost.html", {"form": form, "msg": "msg"})
+    # return HttpResponse(html_template.render(context, request))
 

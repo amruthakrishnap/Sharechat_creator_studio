@@ -1,13 +1,29 @@
 # -*- encoding: utf-8 -*-
 """
-Copyright (c) 2019 - present AppSeed.us
+Copyright Hack
 """
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
+class CreateNewPost(forms.Form):
+    Title = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Title",
+                "class": "form-control form-control-lg"
+            }
+        ))
+    Desc = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "placeholder": "Description",
+                "class": "form-control text-primary",
+                "rows": "3"
+            }
+        ))
+        
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -54,6 +70,8 @@ class SignUpForm(UserCreationForm):
                 "class": "form-control"
             }
         ))
+
+
 
     class Meta:
         abstract = True
