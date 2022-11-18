@@ -21,7 +21,7 @@ class UserDetails(models.Model):
 # INSERTING Data
 Default_Data = [ 
     (56, "shareadmin", "tester@gmail.com", "367238", 
-    "{'overall': {'New Viewers': '17K', 'Views': '9.5M', 'followers': '131k','New Viewer SC' : '5K','Views SC' :'3M','followers SC' : '30K', 'New Views pct': '80', 'Views Pct': '92', 'follow pct': '89'}, 'Analytics':{'TP': '5301', 'TWH': '203.2', 'WL': [8, 2, 9, 5, 4, 6, 4, 3, 8, 0]}}"),
+    "{'overall': {'New Viewers': '17K', 'Views': '9.5M', 'followers': '131k','New Viewer SC' : '5K','Views SC' :'3M','followers SC' : '30K', 'New Views pct': '80', 'Views Pct': '92', 'follow pct': '89'}, 'Analytics':{'TP': '5301', 'TWH': '203.2', 'WL': [888, 270, 998, 501, 423, 608, 400, 3, 8, 0]}}"),
     
     (25, "Tester", "tester@gmail.com", "367238", 
     "{'overall':{'New Viewers': '700', 'Views': '3.6k', 'followers': '14', 'New Views pct': '60', 'Views Pct': '92', 'follow pct': '45'}, 'Analytics':{'TP': '68', 'TWH': '0.36', 'WL': [8, 2, 9, 5, 4, 6, 4, 3, 8, 0]}}"),
