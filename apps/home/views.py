@@ -79,7 +79,7 @@ def Create_NewPost(request):
     form = CreateNewPost(request.POST or None)
     # print("ding", form)
     if request.method == "POST":
-        print(request.FILES['vd'])
+        print(request.user)
         # print(form.is_valid(),)
 
         if form.is_valid():

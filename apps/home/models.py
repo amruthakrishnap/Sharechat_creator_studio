@@ -14,6 +14,8 @@ class UserDetails(models.Model):
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=12)
     post = models.CharField(max_length=50000)
+    # stat = models.CharField(max_length=50000)
+
 
     def __str__(self):
         return self.name
