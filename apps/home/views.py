@@ -13,6 +13,7 @@ import json
 from apps.home.models import UserDetails
 from .post_form import CreateNewPost
 import os
+from django.core.files.storage import FileSystemStorage
 
 # from django.forms.models import model_to_dict
 
@@ -76,18 +77,28 @@ def Create_NewPost(request):
     context = {'segment': 'index'}
 
     form = CreateNewPost(request.POST or None)
-    print("ding", form)
+    # print("ding", form)
     if request.method == "POST":
+        print(request.FILES['vd'])
+        # print(form.is_valid(),)
 
         if form.is_valid():
-            Title = form.cleaned_data.get("Title")
-            Description = form.cleaned_data.get("Desc")
-            video = form.cleaned_data.get("vd")
+            try:
+                Title = form.cleaned_data.get("Title")
+                Description = form.cleaned_data.get("Desc")
+                myfile = request.FILES['vd']
+                fs = FileSystemStorage()
+                filename = fs.save(myfile.name, myfile)
+                uploaded_file_url = fs.url(filename)
+                print(uploaded_file_url)
 
-            print("djang", video, Title, Description)
+                print("djang",  Title, Description,uploaded_file_url)
 
-            # with open(f"vide/file/{request.}.mp4", 'wb+') as destination:
-            #     for chunk in f.chunks():
+            except Exception as e:
+                pass
+
+            # with open(f"video/file/{Title}.mp4", 'wb+') as destination:
+            #     for chunk in video.chunks():
             #         destination.write(chunk)
 
     # html_template = loader.get_template('home/login.html')

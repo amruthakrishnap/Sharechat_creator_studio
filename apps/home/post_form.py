@@ -25,16 +25,16 @@ class CreateNewPost(forms.Form):
                 "rows": "3"
             }
         ))
+    # VD = forms.FileInput()
 
-    # vd = forms.FileInput()
-    vd = forms.CharField(
-        widget=forms.FileInput(
-            attrs={
+    # vd = forms.CharField(
+    #     widget=forms.FileInput(
+    #         attrs={
 
-                "class": "form-control form-control-lg text-primary",
-                "accept":"video/mp4,video/x-m4v,video/*",
-            }
-        ))
+    #             "class": "form-control form-control-lg text-primary",
+    #             "accept":"video/*",
+    #         }
+    #     ))
 
 
 
